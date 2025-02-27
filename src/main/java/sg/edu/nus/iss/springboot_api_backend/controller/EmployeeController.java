@@ -20,7 +20,7 @@ import sg.edu.nus.iss.springboot_api_backend.exception.ResourceNotFoundException
 import sg.edu.nus.iss.springboot_api_backend.model.Employee;
 import sg.edu.nus.iss.springboot_api_backend.repository.EmployeeRepository;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*", allowedHeaders = "Access-Control-Allow-Origin")
 @RestController
 @RequestMapping("/api/v1/")
 public class EmployeeController {
@@ -30,6 +30,7 @@ public class EmployeeController {
 	
 	// get all employees
 	@GetMapping("/employees")
+	@CrossOrigin(origins = "http://localhost:4200")
 	public List<Employee> getAllEmployees(){
 		return employeeRepository.findAll();
 	}		
